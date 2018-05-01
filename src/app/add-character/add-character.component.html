@@ -1,0 +1,64 @@
+<h2>Add character</h2>
+
+
+<form #characterForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nameInput">Name</label>
+    <input #name [class.is-invalid] = "isNameInvalid" type="text" class="form-control" required minlength="1" id="name" placeholder="Name" [(ngModel)]="character.name"
+      name="name" #name="ngModel" (blur)="nameValid()">
+  </div>
+
+  <div *ngIf="isNameInvalid" class="alert alert-danger">
+    <p>This field is required</p>
+  </div>
+
+  <div class="form-group">
+    <label for="specieInput">Specie</label>
+    <select #specie class="form-control"  [class.is-invalid] = "isSpecieInvalid" id="specie" [(ngModel)]="character.species" name="specie" (change)="specieValid()">
+        <option disabled selected value> -- select an option -- </option>
+      <option *ngFor="let specie of species"> {{ specie }} </option>
+    </select>
+  </div>
+  <div *ngIf="isSpecieInvalid" class="alert alert-danger">
+    <p>This field is required</p>
+  </div>
+
+  <label for="gender"> Gender</label>
+  <div class="radioDiv" [class.is-invalid] = "isSpecieInvalid">
+      <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" [(ngModel)]="character.gender" id="genderRadio1" value="male">
+          <label class="form-check-label" for="genderRadio1">
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" [(ngModel)]="character.gender" id="genderRadio2" value="female">
+          <label class="form-check-label" for="genderRadio2">
+            Female
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" [(ngModel)]="character.gender" id="genderRadio3" value="n/a">
+          <label class="form-check-label" for="genderRadio3">
+            n/a
+          </label>
+        </div>
+        
+
+  </div>
+  <div *ngIf="isGenderInvalid" class="alert alert-danger">
+      <p>This field is required</p>
+    </div>
+
+
+  <div class="form-group">
+    <label for="nameInput">Homeworld</label>
+    <input type="text" class="form-control" id="homeworld" placeholder="Homeworld" id="homeworld" [(ngModel)]="character.homeworld"
+      name="homeworld">
+  </div>
+
+  <button class="btn btn-primary" type="submit">
+    Dodaj
+  </button>
+
+</form>
