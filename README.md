@@ -1,4 +1,4 @@
-# Sonalake front-end developer recruitment task
+# Angular data managment app
 
 App is built using [angular-cli](https://github.com/angular/angular-cli). 
 
@@ -6,5 +6,5 @@ Api is provided by [json server](https://github.com/typicode/json-server)
 
 To run project:
 
-⋅⋅* npm run api (runs json server)
-⋅⋅* npm run start (runs ng serve)
+* npm run api (runs json server)
+* npm run start (runs ng serve)
